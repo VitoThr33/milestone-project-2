@@ -19,6 +19,9 @@ app.get("/", (req, res) => {
 // /posts
 app.use("/posts", require("./controllers/posts-controller"));
 
+// /comments
+app.use("/comments", require("./controllers/comments-controller"));
+
 //listen to port
 app.listen(PORT, () => {
     console.log("Listening on port", PORT);
