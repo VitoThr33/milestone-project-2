@@ -1,7 +1,6 @@
 //mongoose dependencies
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
-const db = require("./index");
 
 //post schema
 //name, sport, post, comments
