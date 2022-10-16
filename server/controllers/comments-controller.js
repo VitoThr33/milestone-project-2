@@ -1,14 +1,14 @@
 //dependencies and router setup
 const router = require("express").Router();
 const db = require("../models");
-const { Post, Comment } = db;
+const { Comment } = db;
 
 
-//GET all posts
+//GET all comments
 router.get("/", async (req, res) => {
     try {
-        const foundPosts = await Post.find();
-        res.status(200).json(foundPosts);
+        const foundComments = await Comment.find();
+        res.status(200).json(foundComments);
     } catch (err) {
         res.status(500).json(err);
     }
@@ -16,21 +16,20 @@ router.get("/", async (req, res) => {
 
 //GET a post by id and all related comments
 router.get("/:id", async (req, res) => {
-    try{
-        const foundPost = await Post.findById(req.params.id);
-        await foundPost.populate("comments");
-        res.status(200).json(foundPost);
+    try {
+        const foundComment = await Comment.findById(req.params.id);
+        res.status(200).json(foundComment);
     } catch (err) {
         res.status(500).json(err);
     }
 });
 
-//POST a new post
+//POST a new comment
 router.post("/", async (req, res) => {
     try {
-        const createdPost = await Post.create(req.body);
-        console.log("Created Post:", createdPost);
-        res.status(200).json(createdPost);
+        const createdComment = await Comment.create(req.body);
+        console.log("Created Comment:", createdComment);
+        res.status(200).json(createdComment);
     } catch (err) {
         if (err.name === "ValidationError") {
             let errorMessage = "Validation Error(s): "
@@ -44,15 +43,15 @@ router.post("/", async (req, res) => {
     }
 });
 
-//PUT a post
+//PUT a comment
 router.put("/:id", async (req, res) => {
     try {
-        await Post.findByIdAndUpdate(req.params.id, req.body,
+        await Comment.findByIdAndUpdate(req.params.id, req.body,
             {runValidators: true}    
         );
-        console.log("Updated post at ID", req.params.id);
+        console.log("Updated comment at ID", req.params.id);
         res.status(200).json({
-            message: `Updated post at ${req.params.id}`
+            message: `Updated comment at ${req.params.id}`
         });
     } catch (err) {
         if (err.name === "ValidationError") {
@@ -67,14 +66,13 @@ router.put("/:id", async (req, res) => {
     }
 })
 
-//DELETE a post and all related comments
+//DELETE a comment
 router.delete("/:id", async (req, res) => {
     try {
-        await Post.findByIdAndDelete(req.params.id);
-        const deletedComments = await Comment.deleteMany({post: req.params.id});
-        console.log(`Deleted post and ${deletedComments.deletedCount} comments`);
+        await Comment.findByIdAndDelete(req.params.id);
+        console.log(`Deleted comment`);
         res.status(200).json({
-            message: `Deleted post and ${deletedComments.deletedCount} comments`
+            message: `Deleted comment`
         });
     } catch (err) {
         console.log(err);
