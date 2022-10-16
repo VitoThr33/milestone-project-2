@@ -20,7 +20,7 @@ app.get("/", (req, res) => {
 app.use("/posts", require("./controllers/posts-controller"));
 
 // /comments
-app.use("/comments", require("./controllers/comment-controller"));
+app.use("/comments", require("./controllers/comments-controller"));
 
 //listen to port
 app.listen(PORT, () => {
