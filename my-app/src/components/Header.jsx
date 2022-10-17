@@ -13,8 +13,8 @@ const Header = () => {
                 <Typography variant="h4">CSPN</Typography>
                 {isLoggedIn && <Box display="flex" marginLeft={'auto'} marginRight='auto'>
                     <Tabs textColor="inherit" value={value} onChange={(e, val) => setvalue(val)}>
-                        <Tab LinkComponent={Link} to="/blogs" label="All Blogs" />
-                        <Tab LinkComponent={Link} to="/myBlogs" label="My Blogs" />
+                        <Tab LinkComponent={Link} to="/posts" label="All Posts" />
+                        <Tab LinkComponent={Link} to="/myPosts" label="My Posts" />
 
                     </Tabs>
                 </Box>}
