@@ -8,3 +8,4 @@ mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopolo
 
 module.exports.Post = require("./post");
 module.exports.Comment = require("./comment");
+module.exports.User = require("./user");
