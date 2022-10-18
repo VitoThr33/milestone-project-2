@@ -10,7 +10,7 @@ app.use(express.json());
 //GET /
 app.get("/", (req, res) => {
     res.json({
-        message: "Use /posts or /comments for data"
+        message: "Use /users, /posts or /comments for data"
     })
 })
 
