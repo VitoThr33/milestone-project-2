@@ -16,7 +16,7 @@ router.get("/", async (req, res) => {
 
 //GET a post by id and all related comments
 router.get("/:id", async (req, res) => {
-    try{
+    try {
         const foundPost = await Post.findById(req.params.id);
         await foundPost.populate("comments");
         res.status(200).json(foundPost);
