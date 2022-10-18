@@ -3,11 +3,13 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 //post schema
-//name, sport, post, comments
+//name, user, sport, post, image
 const postSchema = new Schema ({
     name: { type: String, default: "Anonymous" },
+    user : { type: Schema.Types.ObjectId, required: true },
     sport: { type: String, required: true, enum: ["Soccer", "Baseball", "Basketball", "Football", "Other"] },
-    post: { type: String, required: true }
+    post: { type: String, required: true },
+    image: { type: String, default: null }
 }, { toJSON: { virtuals: true } });
 
 //virtual
