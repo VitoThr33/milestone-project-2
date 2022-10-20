@@ -31,6 +31,7 @@ On all create routes refer below for what the model expects for data.
 Pass all data through the request body.
 
 **/posts**
+
 | method | route | response |
 | --- | --- | --- |
 | GET | /posts | returns all posts without related comments |
@@ -41,6 +42,7 @@ Pass all data through the request body.
 | DELETE | /posts/:id | deletes a post and all related comments based on id and returns a confirmation message
 
 **/comments**
+
 | method | route | response |
 | --- | --- | --- |
 | GET | /comments | returns all comments |
@@ -50,6 +52,7 @@ Pass all data through the request body.
 | DELETE | /comments/:id | deletes a comment based on id and returns a confirmation message
 
 **/users**
+
 | method | route | response |
 | --- | --- | --- |
 | GET | /users | returns all users |
@@ -69,29 +72,30 @@ Database holds Posts, Comments and Users.
 
 Has a virtual field referencing all comments with matching post ID.
 | property | datatype | required | other |
-| -- | -- | -- | -- | -- |
+| --- | --- | --- | --- | --- |
 | name | string | no | defaults to anonymous |
 | user | mongo objectID | yes | references existing user by ID |
 | sport | string | yes | values: soccer, baseball, basketball, football, other |
-| post | string | yes | |
+| post | string | yes | none |
 | image | string | no | defaults to null|
 
 **Comments**
+
 | property | datatype | required | other |
-| -- | -- | -- | -- | -- |
+| --- | --- | --- | --- | --- |
 | name | string | no | defaults to anonymous |
 | user | mongo objectID | yes | references existing user by ID |
-| comment | string | yes | |
+| comment | string | yes | none |
 | post | mongo objectID | yes | references existing post by ID |
 
 **Users**
 
 Has virtual fields referencing all comments and posts with matching user IDs.
 | property | datatype | required | other |
-| -- | -- | -- | -- | -- |
+| --- | --- | --- | --- | --- |
 | username | string | yes | must be unique |
 | email | string | yes | must be unique |
-| password | string | yes | |
+| password | string | yes | none |
 
 
 ## Bugs and Unfinished Features
