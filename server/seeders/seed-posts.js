@@ -1,25 +1,25 @@
 const db = require("../models");
 const { default: mongoose } = require("mongoose");
 
-const userId = "634e01388562060b4cf58285";
+const userId = "6350a39795f1c331d0b3bb5a";
 
 //seed posts
 //run users first, replace userId with the id of a user
 db.Post.create([{
     name: "Test Person",
     user: userId,
-    sport: "Soccer",
+    sport: "soccer",
     post: "Test Content"    
 },
 {
     user: userId,
-    sport: "Baseball",
+    sport: "baseball",
     post: "Test Content 2" 
 },
 {
     name: "Test Person 2",
     user: userId,
-    sport: "Basketball",
+    sport: "baseball",
     post: "Test Content 3" 
 }])
 .then (() => {

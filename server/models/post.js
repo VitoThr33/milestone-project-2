@@ -7,7 +7,7 @@ const { Schema } = mongoose;
 const postSchema = new Schema ({
     name: { type: String, default: "Anonymous" },
     user : { type: Schema.Types.ObjectId, required: true },
-    sport: { type: String, required: true, enum: ["Soccer", "Baseball", "Basketball", "Football", "Other"] },
+    sport: { type: String, required: true, enum: ["soccer", "baseball", "basketball", "football", "other"] },
     post: { type: String, required: true },
     image: { type: String, default: null }
 }, { toJSON: { virtuals: true } });
