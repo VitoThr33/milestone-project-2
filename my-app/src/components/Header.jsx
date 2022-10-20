@@ -8,6 +8,7 @@ const Header = () => {
 
     const [value, setvalue] = useState(second)
     return (
+                                                            //Headerbar Tabs once logged in then Login SignUp/Logout buttons
         <AppBar position="sticky" sx={{ background: "gray" }}>
             <Toolbar>
                 <Typography variant="h4">CSPN</Typography>
@@ -15,9 +16,9 @@ const Header = () => {
                     <Tabs textColor="inherit" value={value} onChange={(e, val) => setvalue(val)}>
                         <Tab LinkComponent={Link} to="/posts" label="All Posts" />
                         <Tab LinkComponent={Link} to="/myPosts" label="My Posts" />
-
+                        <Tab LinkComponent={Link} to="/posts/add" label="Add New Post" />
                     </Tabs>
-                </Box>}
+                </Box>}               
                 <Box display="flex" marginLeft="auto">
                     {!isLoggedIn && <><Button LinkComponent={Link} to="/auth" variant='contained' sx={{ margin: 1, borderRadius: 10 }} color="warning">Login</Button>
                     <Button LinkComponent={Link} to="/auth" variant='contained' sx={{ margin: 1, borderRadius: 10 }} color="warning">SignUp</Button></>}

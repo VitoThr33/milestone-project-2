@@ -1,7 +1,9 @@
 import { Box, Button, Typography,TextField, } from '@mui/material'
 import React,{useState} from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const Auth = () => {
+  const navigate = useNavigate()
   const [inputs, setInputs]= useState({
     name:"",
     email:"",
