@@ -76,7 +76,7 @@ Has a virtual field referencing all comments with matching post ID.
 | name | string | no | defaults to anonymous |
 | user | mongo objectID | yes | references existing user by ID |
 | sport | string | yes | values: soccer, baseball, basketball, football, other |
-| post | string | yes | |
+| post | string | yes | none |
 | image | string | no | defaults to null|
 
 **Comments**
@@ -85,7 +85,7 @@ Has a virtual field referencing all comments with matching post ID.
 | --- | --- | --- | --- | --- |
 | name | string | no | defaults to anonymous |
 | user | mongo objectID | yes | references existing user by ID |
-| comment | string | yes | |
+| comment | string | yes | none |
 | post | mongo objectID | yes | references existing post by ID |
 
 **Users**
@@ -95,7 +95,7 @@ Has virtual fields referencing all comments and posts with matching user IDs.
 | --- | --- | --- | --- | --- |
 | username | string | yes | must be unique |
 | email | string | yes | must be unique |
-| password | string | yes | |
+| password | string | yes | none |
 
 
 ## Bugs and Unfinished Features
