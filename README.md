@@ -72,30 +72,30 @@ Database holds Posts, Comments and Users.
 
 Has a virtual field referencing all comments with matching post ID.
 | property | datatype | required | other |
-| --- | --- | --- | --- | --- |
+| -------- | -------- | -------- | ----- |
 | name | string | no | defaults to anonymous |
 | user | mongo objectID | yes | references existing user by ID |
 | sport | string | yes | values: soccer, baseball, basketball, football, other |
-| post | string | yes | none |
+| post | string | yes |  |
 | image | string | no | defaults to null|
 
 **Comments**
 
 | property | datatype | required | other |
-| --- | --- | --- | --- | --- |
+| -------- | -------- | -------- | ----- |
 | name | string | no | defaults to anonymous |
 | user | mongo objectID | yes | references existing user by ID |
-| comment | string | yes | none |
+| comment | string | yes |  |
 | post | mongo objectID | yes | references existing post by ID |
 
 **Users**
 
 Has virtual fields referencing all comments and posts with matching user IDs.
 | property | datatype | required | other |
-| --- | --- | --- | --- | --- |
+| -------- | -------- | -------- | ----- |
 | username | string | yes | must be unique |
 | email | string | yes | must be unique |
-| password | string | yes | none |
+| password | string | yes |  |
 
 
 ## Bugs and Unfinished Features
