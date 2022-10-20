@@ -25,6 +25,16 @@ router.get("/:id", async (req, res) => {
     }
 });
 
+//GET a post by sports type
+router.get("/sports/:sport", async (req, res) => {
+    try {
+        const foundPosts = await Post.find({sport: req.params.sport});
+        res.status(200).json(foundPosts);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 //POST a new post
 router.post("/", async (req, res) => {
     try {
