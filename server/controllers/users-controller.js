@@ -1,7 +1,7 @@
 //dependencies and router setup
 const router = require("express").Router();
 const db = require("../models");
-const { User } = db;
+const { User, Post, Comment } = db;
 
 //GET all users
 router.get("/", async (req, res) => {
@@ -101,9 +101,15 @@ router.put("/:id", async (req, res) => {
 router.delete("/:id", async (req, res) => {
     try {
         await User.findByIdAndDelete(req.params.id);
-        console.log(`Deleted user`);
+        await Comment.deleteMany({user: req.params.id});
+        const foundPosts = await Post.find({user: req.params.id});
+        foundPosts.forEach(async post => {
+            await Comment.deleteMany({post: post._id});
+            await Post.findByIdAndDelete(post._id);
+        });
+        console.log(`Deleted user and all related comments`);
         res.status(200).json({
-            message: "Deleted User"
+            message: "Deleted User and all related comments and posts"
         })
     } catch (err) {
         res.status(500).json(err);
