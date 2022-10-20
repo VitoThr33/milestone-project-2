@@ -1,26 +1,30 @@
 import React from 'react'
 import {CardMedia, CardContent, Card, Typography,CardActionArea,Button} from '@mui/material'
+import { maxHeight, maxWidth } from '@mui/system'
 
 function Cards(props) {
   return (
     <div className='post-test'>
     
-      <Card sx={{ maxWidth: 450 }}>
+      <Card sx={{ minWidth:500, maxWidth:500  }}>
         <CardContent>
           <Typography gutterBottom variant="h4">
-              {props.title}
+              Go Padres!
           </Typography>
           <CardMedia
             component="img"
-            height="140"
+            height="300"
+            width={200}
             image="{prop.imgUrl}"
             alt="User's Post alt"
           />
             <Typography variant="body2">
-            {props.details}
+            
           </Typography>
             <CardActionArea>
-              <Button href="/myposts/:id"size="small">Read More</Button>
+              <Button
+             contentAlign={'left'}
+               href="/myposts/:id"size="small">Read Article</Button>
             </CardActionArea>
         </CardContent>
       </Card>

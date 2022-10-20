@@ -12,7 +12,8 @@ function PostDetail(props) {
             <hr></hr>
             <CardMedia
             component="img"
-            height="900"
+            height="400"
+            width={900}
             image="{prop.imgUrl}"
             alt="User's IMG Goes here"
           />
@@ -21,7 +22,7 @@ function PostDetail(props) {
             </Typography>
           </CardContent>
         </Card>
-
+          <h4>What people think</h4>
           <Comments />
       </div>
     )

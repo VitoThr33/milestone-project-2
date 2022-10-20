@@ -24,10 +24,13 @@ function AddPost() {
           </Typography>
           <InputLabel>Title</InputLabel>
           <TextField />
-          <InputLabel>Post text</InputLabel>
-          <TextField />
           <InputLabel>ImageURL</InputLabel>
           <TextField />
+          <InputLabel>Post text</InputLabel>
+          <TextField
+          multiline= {true}
+           />
+          
         </Box>
       </form>
     </div>
