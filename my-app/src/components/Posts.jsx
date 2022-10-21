@@ -10,7 +10,7 @@ function Post() {
 
   axios({
     method: "get",
-    url: "https://cspn-sports.herokuapp.com/posts/"
+    url: "http://cspn-sports.herokuapp.com/posts"
   })
   .then(res => {
     res.json();
