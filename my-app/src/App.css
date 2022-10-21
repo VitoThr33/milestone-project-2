@@ -36,9 +36,8 @@ h1 {
   } 
   /* Home page Entire Cards  */
   .MuiCard-root {
-    width: 600px;
-    height: 400px;
-    box-shadow: 2em 2em;
+    max-width: fit-content;
+    
   }
   /* home page Posts Cards image */
   .MuiCardMedia-img {
@@ -47,9 +46,9 @@ h1 {
   }
   /*Full Post*/
   .MuiCardContent-root{
-    /*width: auto;
+    width: auto;
     min-width: 500px;
-    height: auto;*/
+    max-height: fit-content;
   }
   .MuiCard-root {
     display: flex;
@@ -58,8 +57,20 @@ h1 {
     
   
   }
-  /*Comment Section Card*/
-  {
-    color: #cba135;
-  
+  .comment-section{
+    height: auto;
   }
+  .user-comment{
+    max-width: auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .post-details {
+    display: flex;
+    justify-content: center;
+  }
+.my-post-page {
+    display: flex;
+    justify-content: center;
+}

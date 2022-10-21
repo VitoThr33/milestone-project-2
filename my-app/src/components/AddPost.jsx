@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Typography, Box, InputLabel, TextField } from "@mui/material";
+import { Typography, Box, InputLabel, TextField, Button } from "@mui/material";
 
 function AddPost() {
   return (
@@ -30,6 +30,7 @@ function AddPost() {
           <TextField
           multiline= {true}
            />
+           <Button size="small">Create Post</Button>
           
         </Box>
       </form>
