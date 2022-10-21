@@ -1,7 +1,9 @@
 //dependencies
 const express = require("express");
+const cors = require("cors");
 
 //configuration
+app.use(cors());
 require("dotenv").config({path: ".env"});
 const PORT = process.env.PORT;
 const app = express();
