@@ -8,7 +8,6 @@ const { Post, Comment } = db;
 router.get("/", async (req, res) => {
     try {
         const foundPosts = await Post.find();
-        res.setHeader('Content-Type', 'application/json');
         res.status(200).json(foundPosts);
     } catch (err) {
         res.status(500).json(err);
