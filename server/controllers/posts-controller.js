@@ -8,6 +8,7 @@ const { Post, Comment } = db;
 router.get("/", async (req, res) => {
     try {
         const foundPosts = await Post.find();
+        res.setHeader("Access-Control-Allow-Origin", "*");
         res.status(200).json(foundPosts);
     } catch (err) {
         res.status(500).json(err);
