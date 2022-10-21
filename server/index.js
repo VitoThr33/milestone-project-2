@@ -7,7 +7,8 @@ require("dotenv").config({path: ".env"});
 const PORT = process.env.PORT;
 const app = express();
 app.use(cors({
-    origin: false
+    "origin": "*",
+    "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
 }));
 app.use(express.json());
 
