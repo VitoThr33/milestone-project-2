@@ -1,5 +1,6 @@
 import React from 'react'
 import Cards from './Cards'
+import axios from "axios"
 
 function Post() {
 
@@ -7,7 +8,10 @@ function Post() {
   // const result = await response.json();
   // console.log(result);
 
-  fetch("https://cspn-sports.herokuapp.com/posts")
+  axios({
+    method: "get",
+    url: "https://cspn-sports.herokuapp.com/posts/"
+  })
   .then(res => {
     res.json();
   }).then(result => {
