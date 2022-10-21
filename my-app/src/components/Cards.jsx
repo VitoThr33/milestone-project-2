@@ -15,7 +15,7 @@ function Cards(props) {
             component="img"
             height="300"
             width={200}
-            image="{prop.imgUrl}"
+            image='https://picsum.photos/id/237/536/354'
             alt="User's Post alt"
           />
             <Typography variant="body2">

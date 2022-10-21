@@ -1,10 +1,11 @@
 import React from 'react'
-import {CardMedia, CardContent, Card, Typography} from '@mui/material'
+import {CardMedia, CardContent, Card, Typography,InputLabel} from '@mui/material'
 import Comments from './Comments'
+import UserComment from './UserComent'
 function PostDetail(props) {
     return(
-      <div> 
-        <Card sx={{ maxWidth: 2000 }}>
+      <div className='post-details'> 
+        <Card >
         <CardContent>
             <Typography gutterBottom variant="h4">
               <h1>Title goes here</h1>
@@ -20,11 +21,16 @@ function PostDetail(props) {
             <Typography variant="body2">
             {props.details}
             </Typography>
+          
+          <Typography varient='h4'>What do you think?</Typography>
+          
+          <UserComment />
+          <Typography>What others Think</Typography>
+          <Comments />
           </CardContent>
         </Card>
-          <h4>What people think</h4>
-          <Comments />
       </div>
+      
     )
   
   }

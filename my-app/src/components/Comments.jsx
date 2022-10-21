@@ -3,13 +3,14 @@ import {CardContent, Card, Typography} from '@mui/material'
 
 function Comments() {
     return(
-        <Card>
+        <div className="comment-section">
             <CardContent>
                 <Typography 
                 textAlign={'left'}
                 variant='h6'
                 border={2}
                 borderColor='black'
+                sx={{maxWidth:600, minWidth:600}}
                 >
                     Comment user name
                 </Typography>
@@ -31,8 +32,9 @@ function Comments() {
                     Amet dictum sit amet justo donec enim diam vulputate.
                 </Typography>
             </CardContent>
+
             
-        </Card>
+        </div>
     )
 }
 
