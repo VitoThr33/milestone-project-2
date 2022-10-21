@@ -6,10 +6,14 @@ const cors = require("cors");
 require("dotenv").config({path: ".env"});
 const PORT = process.env.PORT;
 const app = express();
-app.use(cors({
-    "origin": "*",
-    "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
-}));
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.header(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    next();
+  });
 app.use(express.json());
 
 //GET /
