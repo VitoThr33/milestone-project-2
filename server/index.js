@@ -1,16 +1,19 @@
 //dependencies
 const express = require("express");
+const cors = require("cors");
 
 //configuration
 require("dotenv").config({path: ".env"});
 const PORT = process.env.PORT;
 const app = express();
-app.use(express.json());
+app.use(cors({
+    origin: "*"
+}))
 
 //GET /
 app.get("/", (req, res) => {
     res.json({
-        message: "Use /posts or /comments for data"
+        message: "Use /users, /posts or /comments for data"
     })
 })
 
@@ -18,6 +21,12 @@ app.get("/", (req, res) => {
 
 // /posts
 app.use("/posts", require("./controllers/posts-controller"));
+
+// /comments
+app.use("/comments", require("./controllers/comments-controller"));
+
+// /users
+app.use("/users", require("./controllers/users-controller"));
 
 //listen to port
 app.listen(PORT, () => {

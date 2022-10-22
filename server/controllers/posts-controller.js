@@ -16,10 +16,20 @@ router.get("/", async (req, res) => {
 
 //GET a post by id and all related comments
 router.get("/:id", async (req, res) => {
-    try{
+    try {
         const foundPost = await Post.findById(req.params.id);
         await foundPost.populate("comments");
         res.status(200).json(foundPost);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+//GET a post by sports type
+router.get("/sports/:sport", async (req, res) => {
+    try {
+        const foundPosts = await Post.find({sport: req.params.sport});
+        res.status(200).json(foundPosts);
     } catch (err) {
         res.status(500).json(err);
     }
@@ -71,10 +81,10 @@ router.put("/:id", async (req, res) => {
 router.delete("/:id", async (req, res) => {
     try {
         await Post.findByIdAndDelete(req.params.id);
-        const deletedComments = await Comment.deleteMany({post: req.params.id});
-        console.log(`Deleted post and ${deletedComments.deletedCount} comments`);
+        await Comment.deleteMany({post: req.params.id});
+        console.log(`Deleted post and all related comments`);
         res.status(200).json({
-            message: `Deleted post and ${deletedComments.deletedCount} comments`
+            message: `Deleted post and all related comments`
         });
     } catch (err) {
         console.log(err);
