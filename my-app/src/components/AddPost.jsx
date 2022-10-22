@@ -1,6 +1,8 @@
+import React,{useState} from 'react';
+import { Typography, Box, InputLabel, TextField, Button } from "@mui/material";
+import { Link,useNavigate } from "react-router-dom";
 
-import React from 'react';
-import { Typography, Box, InputLabel, TextField } from "@mui/material";
+const labelStyles = { mb: 1, mt: 2, fontSize: "24px", fontWeight: "bold" };
 
 function AddPost() {
   return (
@@ -22,16 +24,20 @@ function AddPost() {
             fontWeight={'bold'}
           >CREATE NEW POST
           </Typography>
-          <InputLabel>Title</InputLabel>
+          <InputLabel sx={labelStyles}>Title</InputLabel>
           <TextField />
-          <InputLabel>Post text</InputLabel>
+          <InputLabel sx={labelStyles}>ImageURL</InputLabel>
           <TextField />
-          <InputLabel>ImageURL</InputLabel>
-          <TextField />
+          <InputLabel sx={labelStyles}>Post text</InputLabel>
+          <TextField
+          multiline= {true}
+           />
+           <Button size="small" LinkComponent={Link} to="/myposts" variant='contained' sx={{ margin: 1, borderRadius: 10 }} color="warning">Create Post</Button>
+          
         </Box>
       </form>
     </div>
   )
-}
+};
 
 export default AddPost

@@ -1,8 +1,11 @@
 import React from 'react'
+import Cards from './Cards'
 
 function UserPosts() {
   return (
-    <div>UserPosts</div>
+    <div>
+      <Cards/>
+    </div>
   )
 }
 
