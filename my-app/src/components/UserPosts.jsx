@@ -1,19 +1,22 @@
 import React from 'react'
 import Cards from './Cards'
-import {Card, Typography} from '@mui/material'
+import { Button, CardContent, Typography } from '@mui/material'
+import Navbar from './Navbar'
 
 function UserPosts() {
   return (
-    <div className='my-post-page'>
+    <div className='my-post-pag'>
+      <Navbar />
       
-      <Card>
-        <Typography 
-          variant='h3'
-          align='center'
-        >My Posts
-        </Typography>
-        <Cards />
-      </Card> 
+        <CardContent>
+          <Typography 
+            variant='h4'
+            align='center'
+          >My Posts
+          </Typography>
+          <Cards />
+        </CardContent>
+      
     </div>
   )
 }
