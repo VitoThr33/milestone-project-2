@@ -25,15 +25,12 @@ h1 {
     font-size: 4em;
     text-align: center;
   }
-  .post-test{
+  .cards-posts{
     display: flex;
     justify-content: center;
     margin: 80px;
+    padding-bottom: 0px;
   }
-  /*Card detais*/
-  .MuiTypography-body2{
-    
-  } 
   /* Home page Entire Cards  */
   .MuiCard-root {
     max-width: fit-content;
@@ -73,4 +70,13 @@ h1 {
 .my-post-page {
     display: flex;
     justify-content: center;
+}
+.navbar{
+    display: flex;
+    justify-content: center;
+}
+.delete-postBTN{
+  display: flex;
+  justify-content: right;
+
 }

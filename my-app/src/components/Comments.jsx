@@ -1,5 +1,5 @@
 import React from "react";
-import {CardContent, Card, Typography} from '@mui/material'
+import { CardContent, Typography } from '@mui/material'
 
 function Comments() {
     return(
@@ -31,6 +31,12 @@ function Comments() {
                     augue lacus viverra vitae congue. Vitae auctor eu augue ut. 
                     Amet dictum sit amet justo donec enim diam vulputate.
                 </Typography>
+                <form className="comment-delete" action=
+                {`https://cspn-sports.herokuapp.com/posts/{id}
+                ?_method=DELETE`} method="POST">
+                <input type='submit' value='DELETE COMMENT' />
+                </form>
+
             </CardContent>
 
             

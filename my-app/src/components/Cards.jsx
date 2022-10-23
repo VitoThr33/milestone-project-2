@@ -1,15 +1,15 @@
 import React from 'react'
-import {CardMedia, CardContent, Card, Typography,CardActionArea,Button} from '@mui/material'
-import { maxHeight, maxWidth } from '@mui/system'
+import { CardMedia, CardContent, Card, Typography,CardActionArea,Button } from '@mui/material'
+
 
 function Cards(props) {
   return (
-    <div className='post-test'>
+    <div className='cards-posts'>
     
-      <Card sx={{ minWidth:500, maxWidth:500  }}>
+      <Card sx={{ borderRadius:5, minWidth:500, maxWidth:500}}>
         <CardContent>
           <Typography gutterBottom variant="h4">
-              Go Padres!
+              Title Goes Here
           </Typography>
           <CardMedia
             component="img"
@@ -18,12 +18,9 @@ function Cards(props) {
             image='https://picsum.photos/id/237/536/354'
             alt="User's Post alt"
           />
-            <Typography variant="body2">
-            
-          </Typography>
             <CardActionArea>
               <Button
-             contentAlign={'left'}
+             contentAlign={'center'}
                href="/myposts/:id"size="small">Read Article</Button>
             </CardActionArea>
         </CardContent>
