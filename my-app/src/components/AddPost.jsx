@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import { Typography, Box, InputLabel, TextField, Button } from "@mui/material";
+import { Typography, Box, InputLabel, TextField, Button, FormControlLabel,RadioGroup,Radio} from "@mui/material";
 import { Link,useNavigate } from "react-router-dom";
 import { useStyles } from "./utils";
 import axios from "axios";
@@ -86,6 +86,17 @@ function AddPost() {
           variant="outlined"
           multiline= {true}
            />
+           <RadioGroup
+        row
+        aria-labelledby="demo-row-radio-buttons-group-label"
+        name="row-radio-buttons-group"
+      >
+        <FormControlLabel value="Baseball" control={<Radio />} label="Baseball" />
+        <FormControlLabel value="Football" control={<Radio />} label="Football" />
+        <FormControlLabel value="Basketball" control={<Radio />} label="Basketball" />
+        <FormControlLabel value="Soccer" control={<Radio />} label="Soccer" />
+        <FormControlLabel value="Other" control={<Radio />} label="Other" />
+      </RadioGroup>
            <Button type="submit" LinkComponent={Link} to="/myposts" variant='contained' sx={{ margin: 1, borderRadius: 4 }} color="warning">Create Post</Button>
           
         </Box>
