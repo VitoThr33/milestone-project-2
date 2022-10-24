@@ -6,7 +6,7 @@ const { Schema } = mongoose;
 //name, user, comment, post
 const commentSchema = new Schema ({
     name: { type: String, default: "Anonymous" },
-    user : { type: Schema.Types.ObjectId, required: true },
+    user : { type: Schema.Types.ObjectId },
     comment: { type: String, required: true },
     post: { type: Schema.Types.ObjectId, ref: "Post", required: true }
 });

@@ -40,7 +40,7 @@ router.post("/", async (req, res) => {
     try {
         const createdPost = await Post.create(req.body);
         console.log("Created Post:", createdPost);
-        res.status(200).json(createdPost);
+        res.status(200).end();
     } catch (err) {
         if (err.name === "ValidationError") {
             let errorMessage = "Validation Error(s): "
@@ -61,9 +61,7 @@ router.put("/:id", async (req, res) => {
             {runValidators: true}    
         );
         console.log("Updated post at ID", req.params.id);
-        res.status(200).json({
-            message: `Updated post at ${req.params.id}`
-        });
+        res.status(200).end();
     } catch (err) {
         if (err.name === "ValidationError") {
             let errorMessage = "Validation Error(s): "
