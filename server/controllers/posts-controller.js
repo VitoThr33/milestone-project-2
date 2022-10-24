@@ -83,12 +83,10 @@ router.delete("/:id", async (req, res) => {
         await Post.findByIdAndDelete(req.params.id);
         await Comment.deleteMany({post: req.params.id});
         console.log(`Deleted post and all related comments`);
-        res.status(200).json({
-            message: `Deleted post and all related comments`
-        });
+        res.status(200);
     } catch (err) {
         console.log(err);
-        res.status(500);
+        res.status(500)
     }
 })
 
