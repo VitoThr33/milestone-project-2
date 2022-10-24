@@ -50,9 +50,7 @@ router.put("/:id", async (req, res) => {
             {runValidators: true}    
         );
         console.log("Updated comment at ID", req.params.id);
-        res.status(200).json({
-            message: `Updated comment at ${req.params.id}`
-        });
+        res.status(200).end();
     } catch (err) {
         if (err.name === "ValidationError") {
             let errorMessage = "Validation Error(s): "
@@ -71,9 +69,7 @@ router.delete("/:id", async (req, res) => {
     try {
         await Comment.findByIdAndDelete(req.params.id);
         console.log(`Deleted comment`);
-        res.status(200).json({
-            message: `Deleted comment`
-        });
+        res.status(200).end();
     } catch (err) {
         console.log(err);
         res.status(500).json(err);

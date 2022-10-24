@@ -1,7 +1,7 @@
 const db = require("../models");
 const { default: mongoose } = require("mongoose");
 
-const userId = "6350b4d3b63edb670262072a";
+const userId = "6356ef7d0d81285ccb79bd70";
 
 //seed posts
 //run users first, replace userId with the id of a user
