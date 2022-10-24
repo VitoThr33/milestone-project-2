@@ -2,7 +2,20 @@ import React from 'react'
 import { CardMedia, CardContent, Card, Typography } from '@mui/material'
 import Comments from './Comments'
 import UserComment from './UserComent'
+import {useLocation, useNavigate} from "react-router-dom"
+
 function PostDetail(props) {
+  const navigate = useNavigate();
+    const location = useLocation();
+    const id = location.pathname.substring(9);
+    console.log(id)
+
+    function handleSubmit(event) {
+      event.preventDefault();
+
+      navigate("/posts")
+    }
+
     return(
       <div className='post-details'> 
       
@@ -31,11 +44,11 @@ function PostDetail(props) {
               <UserComment />
               <Typography>What others Think</Typography>
               <Comments />
-              <from className='delete-postBTN' action=
-                {`https://cspn-sports.herokuapp.com/posts/{id}
-                ?_method=DELETE`} method="POST">
-                <input type='submit' value='DELETE POST' />
-              </from>
+              <form className='delete-postBTN' 
+              action={`https://cspn-sports.herokuapp.com/posts/${id}?_method=DELETE`} 
+              method="POST" >
+                <input type='submit' value='DELETE POST'/>
+              </form>
           </CardContent>
         </Card>
       </div>

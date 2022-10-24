@@ -1,6 +1,6 @@
 import React from 'react'
 import { CardMedia, CardContent, Card, Typography,CardActionArea,Button } from '@mui/material'
-
+import { Link } from "react-router-dom"
 
 function Cards(props) {
   return (
@@ -19,9 +19,7 @@ function Cards(props) {
             alt="User's Post alt"
           />
             <CardActionArea>
-              <Button
-             contentAlign={'center'}
-               href="/myposts/:id"size="small">Read Article</Button>
+              <Link to={`/myposts/${props.id}`}>Read</Link>
             </CardActionArea>
         </CardContent>
       </Card>

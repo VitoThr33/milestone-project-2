@@ -33,15 +33,22 @@ function Post() {
     )
   }
 
+  // function showData() { 
+  //   data.forEach(post => {
+  //     return (
+  //       cards
+  //     )
+  //   })
+  // }
+
   return (
 
     <div>
       <Navbar />
-      <Cards />
-      <Cards />
-      {data.forEach(post => {
+      
+      {data.map(post => {
         return (
-          <Cards name={post.title} />
+          <Cards title={post.title} id={post.id}/>
         )
       })}
 
