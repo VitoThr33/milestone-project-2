@@ -2,7 +2,6 @@ import React from 'react'
 import { CardMedia, CardContent, Card, Typography } from '@mui/material'
 import Comments from './Comments'
 import UserComment from './UserComent'
-const methodOverride = require('method-override')
 function PostDetail(props) {
     return(
       <div className='post-details'> 
