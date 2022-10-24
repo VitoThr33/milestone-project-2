@@ -10,10 +10,15 @@ function PostDetail(props) {
     const id = location.pathname.substring(9);
     console.log(id)
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
       event.preventDefault();
+      await fetch(`https://cspn-sports.herokuapp.com/posts/${id}?_method=DELETE`, {
+        method: "POST"
+      });
 
-      navigate("/posts")
+      navigate("/posts");
+      console.log("TEST")
+ 
     }
 
     return(
@@ -44,9 +49,7 @@ function PostDetail(props) {
               <UserComment />
               <Typography>What others Think</Typography>
               <Comments />
-              <form className='delete-postBTN' 
-              action={`https://cspn-sports.herokuapp.com/posts/${id}?_method=DELETE`} 
-              method="POST" >
+              <form className='delete-postBTN' onSubmit={handleSubmit}>
                 <input type='submit' value='DELETE POST'/>
               </form>
           </CardContent>
