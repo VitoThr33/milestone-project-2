@@ -1,13 +1,49 @@
 import React,{useState} from 'react';
 import { Typography, Box, InputLabel, TextField, Button } from "@mui/material";
 import { Link,useNavigate } from "react-router-dom";
+import { useStyles } from "./utils";
+import axios from "axios";
 
 const labelStyles = { mb: 1, mt: 2, fontSize: "24px", fontWeight: "bold" };
 
+
 function AddPost() {
+  const classes = useStyles();
+  const navigate = useNavigate();
+  const [inputs, setInputs] = useState({
+    title: "",
+    postText: "",
+    imageURL: "",
+  });
+  
+  const handleChange = (e) => {
+    setInputs((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+  const sendRequest = async () => {
+    const res = await axios
+      .post("https://cspn-sports.herokuapp.com/post/add", {
+        title: inputs.title,
+        postText: inputs.postText,
+        image: inputs.imageURL,
+        user: localStorage.getItem("userId"),
+      })
+      .catch((err) => console.log(err));
+    const data = await res.data;
+    return data;
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(inputs);
+    sendRequest()
+      .then((data) => console.log(data))
+      .then(() => navigate("/posts"));
+  };
   return (
     <div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <Box
           display="flex"
           flexDirection={'column'}
@@ -24,15 +60,33 @@ function AddPost() {
             fontWeight={'bold'}
           >CREATE NEW POST
           </Typography>
-          <InputLabel sx={labelStyles}>Title</InputLabel>
-          <TextField />
-          <InputLabel sx={labelStyles}>ImageURL</InputLabel>
-          <TextField />
-          <InputLabel sx={labelStyles}>Post text</InputLabel>
+          <InputLabel className={classes.font} sx={labelStyles}>Title</InputLabel>
+          <TextField 
+          className={classes.font}
+          name="title"
+          onChange={handleChange}
+          value={inputs.title}
+          margin="auto"
+          variant="outlined"/>
+          <InputLabel className={classes.font} sx={labelStyles}>ImageURL</InputLabel>
           <TextField
+           className={classes.font}
+           name="description"
+           onChange={handleChange}
+           value={inputs.postText}
+           margin="auto"
+           variant="outlined" />
+          <InputLabel className={classes.font} sx={labelStyles}>Post text</InputLabel>
+          <TextField
+          className={classes.font}
+          name="imageURL"
+          onChange={handleChange}
+          value={inputs.imageURL}
+          margin="auto"
+          variant="outlined"
           multiline= {true}
            />
-           <Button size="small" LinkComponent={Link} to="/myposts" variant='contained' sx={{ margin: 1, borderRadius: 10 }} color="warning">Create Post</Button>
+           <Button type="submit" LinkComponent={Link} to="/myposts" variant='contained' sx={{ margin: 1, borderRadius: 4 }} color="warning">Create Post</Button>
           
         </Box>
       </form>
