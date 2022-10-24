@@ -6,7 +6,7 @@ const { Schema } = mongoose;
 //name, user, sport, post, image
 const postSchema = new Schema ({
     name: { type: String, default: "Anonymous" },
-    title: { type: Stringm, required: true },
+    title: { type: String, required: true },
     user : { type: Schema.Types.ObjectId, required: true },
     sport: { type: String, required: true, enum: ["soccer", "baseball", "basketball", "football", "other"] },
     post: { type: String, required: true },

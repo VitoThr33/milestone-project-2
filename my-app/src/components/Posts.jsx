@@ -16,12 +16,11 @@ function Post() {
       setData(result);
     }
     getData();
-
+    
   }, [])
 
   useEffect(() => {
     if (isMounted.current) {
-      console.log(data);
       setIsLoading(false);
     } else {
       isMounted.current = true;
@@ -35,10 +34,18 @@ function Post() {
   }
 
   return (
+
     <div>
       <Navbar />
       <Cards />
       <Cards />
+      {data.forEach(post => {
+        return (
+          <Cards name={post.title} />
+        )
+      })}
+
+
     </div>
   )
 }

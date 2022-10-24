@@ -9,7 +9,7 @@ function Cards(props) {
       <Card sx={{ borderRadius:5, minWidth:500, maxWidth:500}}>
         <CardContent>
           <Typography gutterBottom variant="h4">
-              Title Goes Here
+              {props.title}
           </Typography>
           <CardMedia
             component="img"
