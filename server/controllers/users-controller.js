@@ -56,7 +56,8 @@ router.post("/auth", async (req, res) => {
         const foundUser = await User.findOne({ username: req.body.username });
         if (foundUser && req.body.password === foundUser.password) {
             res.status(200).json({
-                status: "success"
+                status: "success",
+                id: foundUser._id
             });
         } else {
             res.status(500).json({
