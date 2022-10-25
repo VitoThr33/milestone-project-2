@@ -12,8 +12,9 @@ function AddPost() {
   const navigate = useNavigate();
   const [inputs, setInputs] = useState({
     title: "",
-    postText: "",
     imageURL: "",
+    postText: "",
+    
   });
   
   const handleChange = (e) => {
@@ -26,8 +27,9 @@ function AddPost() {
     const res = await axios
       .post("https://cspn-sports.herokuapp.com/post/add", {
         title: inputs.title,
-        postText: inputs.postText,
         image: inputs.imageURL,
+        postText: inputs.postText,
+        
         user: localStorage.getItem("userId"),
       })
       .catch((err) => console.log(err));
@@ -66,25 +68,24 @@ function AddPost() {
           name="title"
           onChange={handleChange}
           value={inputs.title}
-          margin="auto"
           variant="outlined"/>
           <InputLabel className={classes.font} sx={labelStyles}>ImageURL</InputLabel>
           <TextField
            className={classes.font}
-           name="description"
+           name="imageURL"
            onChange={handleChange}
-           value={inputs.postText}
-           margin="auto"
+           value={inputs.imageURL}
            variant="outlined" />
-          <InputLabel className={classes.font} sx={labelStyles}>Post text</InputLabel>
+           <InputLabel className={classes.font} sx={labelStyles}>
+           Post
+          </InputLabel>
           <TextField
-          className={classes.font}
-          name="imageURL"
-          onChange={handleChange}
-          value={inputs.imageURL}
-          margin="auto"
-          variant="outlined"
-          multiline= {true}
+            className={classes.font}
+            name="postText"
+            onChange={handleChange}
+            value={inputs.postText}
+            variant="outlined"
+            multiline={true}
            />
            <RadioGroup
         row
