@@ -5,8 +5,7 @@ import { useStyles } from "./utils";
 import axios from "axios";
 
 const labelStyles = { mb: 1, mt: 2, fontSize: "24px", fontWeight: "bold" };
-import React from 'react';
-import { Typography, Box, InputLabel, TextField, Button } from "@mui/material";
+
 
 
 function AddPost() {
