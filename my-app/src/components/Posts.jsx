@@ -2,11 +2,13 @@ import React from 'react'
 import Cards from './Cards'
 import Navbar from './Navbar'
 import {useEffect, useState, useRef} from "react";
+import { Portal } from '@mui/material';
 
 function Post() {
 
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [sport, setSport] = useState("baseball")
   const isMounted = useRef(false);
 
   useEffect(() => {
@@ -27,6 +29,7 @@ function Post() {
     }
   }, [data])
 
+
   if (isLoading) {
     return (
       <div>Loading...</div>
@@ -36,12 +39,14 @@ function Post() {
   return (
 
     <div>
-      <Navbar />
+      <Navbar setSport={setSport}/>
       
       {data.map(post => {
-        return (
-          <Cards title={post.title} id={post.id}/>
-        )
+        if (sport === post.sport) {
+          return (
+            <Cards title={post.title} id={post.id}/>
+          )
+        }
       })}
 
 
