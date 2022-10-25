@@ -7,6 +7,7 @@ function Post() {
 
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [sport, setSport] = useState("baseball")
   const isMounted = useRef(false);
 
   useEffect(() => {
@@ -27,29 +28,24 @@ function Post() {
     }
   }, [data])
 
+
   if (isLoading) {
     return (
       <div>Loading...</div>
     )
   }
 
-  // function showData() { 
-  //   data.forEach(post => {
-  //     return (
-  //       cards
-  //     )
-  //   })
-  // }
-
   return (
 
     <div>
-      <Navbar />
+      <Navbar setSport={setSport}/>
       
       {data.map(post => {
-        return (
-          <Cards title={post.title} id={post.id}/>
-        )
+        if (sport === post.sport) {
+          return (
+            <Cards title={post.title} id={post.id}/>
+          )
+        }
       })}
 
 
