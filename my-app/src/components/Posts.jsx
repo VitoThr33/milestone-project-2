@@ -2,7 +2,6 @@ import React from 'react'
 import Cards from './Cards'
 import Navbar from './Navbar'
 import {useEffect, useState, useRef} from "react";
-import { Portal } from '@mui/material';
 
 function Post() {
 
