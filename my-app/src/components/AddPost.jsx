@@ -25,12 +25,12 @@ function AddPost() {
   };
   const sendRequest = async () => {
     const res = await axios
-      .post("https://cspn-sports.herokuapp.com/post/add", {
+      .post("https://cspn-sports.herokuapp.com/users/posts", {
         title: inputs.title,
         image: inputs.imageURL,
         postText: inputs.postText,
         
-        user: localStorage.getItem("userId"),
+        user: localStorage.getItem("_id"),
       })
       .catch((err) => console.log(err));
     const data = await res.data;
