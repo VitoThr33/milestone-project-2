@@ -102,14 +102,7 @@ function AddPost() {
       </RadioGroup>
            <Button type="submit" LinkComponent={Link} to="/myposts" variant='contained' sx={{ margin: 1, borderRadius: 4 }} color="warning">Create Post</Button>
 
-          <InputLabel>Title</InputLabel>
-          <TextField />
-          <InputLabel>ImageURL</InputLabel>
-          <TextField />
-          <InputLabel>Post text</InputLabel>
-          <TextField
-          multiline= {true}
-           />
+           
            <Button size="small">Create Post</Button>
 
           
