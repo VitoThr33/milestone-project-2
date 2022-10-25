@@ -103,7 +103,7 @@ function AddPost() {
            <Button type="submit" LinkComponent={Link} to="/myposts" variant='contained' sx={{ margin: 1, borderRadius: 4 }} color="warning">Create Post</Button>
 
            
-           <Button size="small">Create Post</Button>
+       
 
           
         </Box>
