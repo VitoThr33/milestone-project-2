@@ -28,6 +28,7 @@ router.get("/:id", async (req, res) => {
 //POST register a user
 router.post("/register", async (req, res) => {
     try {
+        console.log(req.body);
         const createdUser = await User.create(req.body);
         console.log("Created User:", createdUser);
         res.status(200).json(createdUser);
