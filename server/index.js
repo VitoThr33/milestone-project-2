@@ -1,11 +1,16 @@
 //dependencies
 const express = require("express");
+const cors = require("cors");
+const methodOverride = require("method-override");
 
 //configuration
 require("dotenv").config({path: ".env"});
 const PORT = process.env.PORT;
 const app = express();
-app.use(express.json());
+app.use(cors({
+    origin: "*"
+}));
+app.use(methodOverride("_method"));
 
 //GET /
 app.get("/", (req, res) => {

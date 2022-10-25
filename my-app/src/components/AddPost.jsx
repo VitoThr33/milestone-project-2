@@ -5,6 +5,8 @@ import { useStyles } from "./utils";
 import axios from "axios";
 
 const labelStyles = { mb: 1, mt: 2, fontSize: "24px", fontWeight: "bold" };
+import React from 'react';
+import { Typography, Box, InputLabel, TextField, Button } from "@mui/material";
 
 
 function AddPost() {
@@ -62,6 +64,7 @@ function AddPost() {
             fontWeight={'bold'}
           >CREATE NEW POST
           </Typography>
+
           <InputLabel className={classes.font} sx={labelStyles}>Title</InputLabel>
           <TextField 
           className={classes.font}
@@ -99,6 +102,17 @@ function AddPost() {
         <FormControlLabel value="Other" control={<Radio />} label="Other" />
       </RadioGroup>
            <Button type="submit" LinkComponent={Link} to="/myposts" variant='contained' sx={{ margin: 1, borderRadius: 4 }} color="warning">Create Post</Button>
+
+          <InputLabel>Title</InputLabel>
+          <TextField />
+          <InputLabel>ImageURL</InputLabel>
+          <TextField />
+          <InputLabel>Post text</InputLabel>
+          <TextField
+          multiline= {true}
+           />
+           <Button size="small">Create Post</Button>
+
           
         </Box>
       </form>

@@ -27,6 +27,7 @@
 **All API calls are made to https://cspn-sports.herokuapp.com/**
 
 **Routes**
+
 On all create routes refer below for what the model expects for data.
 Pass all data through the request body.
 
