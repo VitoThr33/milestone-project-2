@@ -1,26 +1,55 @@
 import { Box, Button, Typography,TextField, } from '@mui/material'
-import React,{useState} from 'react'
+import React,{useState} from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { authActions } from "../store";
 
 const Auth = () => {
-  const navigate = useNavigate()
-  const [inputs, setInputs]= useState({
-    name:"",
-    email:"",
-    password:""
+  const naviagte = useNavigate();
+  const dispatch = useDispatch();
+  const [inputs, setInputs] = useState({
+    username: "",
+    email: "",
+    password: "",
   });
-
-  const [isSignup, setIsSignup]=useState(false)
+  const [isSignup, setIsSignup] = useState(false);
   const handleChange = (e) => {
     setInputs((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }));
   };
-  const handleSubmit=(e)=> {
-    e.preventDefault()
+  const sendRequest = async (type = "users") => {
+    const res = await axios
+      .post(`https://cspn-sports.herokuapp.com/${type}`, {
+        username: inputs.name,
+        email: inputs.email,
+        password: inputs.password,
+      })
+      .catch((err) => console.log(err));
+
+    const data = await res.data;
+    console.log(data);
+    return data;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
     console.log(inputs);
-  }
+    if (isSignup) {
+      sendRequest("users/register")
+        .then((data) => localStorage.setItem)
+        .then(() => dispatch(authActions.login()))
+        .then(() => naviagte("/posts"));
+    } else {
+      sendRequest()
+        .then((data) => localStorage.setItem)
+        .then(() => dispatch(authActions.login()))
+        .then(() => naviagte("/posts"));
+    }
+  };
+  
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -42,10 +71,10 @@ const Auth = () => {
           </Typography>
           {isSignup && (
             <TextField
-              name="name"
+              name="username"
               onChange={handleChange}
               value={inputs.name}
-              placeholder="Name"
+              placeholder="Username"
               margin="normal"
             />
           )}{" "}
@@ -87,3 +116,4 @@ const Auth = () => {
 }
 
 export default Auth
+
