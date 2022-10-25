@@ -25,7 +25,7 @@ function AddPost() {
   };
   const sendRequest = async () => {
     const res = await axios
-      .post("https://cspn-sports.herokuapp.com/users/posts", {
+      .post("https://cspn-sports.herokuapp.com/users/posts/_id", {
         title: inputs.title,
         image: inputs.imageURL,
         postText: inputs.postText,
