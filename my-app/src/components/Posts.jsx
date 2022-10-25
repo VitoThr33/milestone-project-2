@@ -33,14 +33,6 @@ function Post() {
     )
   }
 
-  // function showData() { 
-  //   data.forEach(post => {
-  //     return (
-  //       cards
-  //     )
-  //   })
-  // }
-
   return (
 
     <div>
