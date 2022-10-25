@@ -23,7 +23,7 @@ const Auth = () => {
   const sendRequest = async (type = "users") => {
     const res = await axios
       .post(`https://cspn-sports.herokuapp.com/${type}`, {
-        username: inputs.name,
+        username: inputs.username,
         email: inputs.email,
         password: inputs.password,
       })
@@ -39,14 +39,14 @@ const Auth = () => {
     console.log(inputs);
     if (isSignup) {
       sendRequest("users/register")
-        .then((data) => localStorage.setItem)
+        .then((data) => localStorage.setItem )
         .then(() => dispatch(authActions.login()))
         .then(() => naviagte("/posts"));
     } else {
-      sendRequest()
-        .then((data) => localStorage.setItem)
+      sendRequest("users/auth")
+        .then((data) => localStorage.setItem )
         .then(() => dispatch(authActions.login()))
-        .then(() => naviagte("/posts"));
+        .then(() => naviagte("/myposts"));
     }
   };
   
@@ -69,15 +69,16 @@ const Auth = () => {
           <Typography variant="h2" padding={3} textAlign="center">
             {isSignup ? "Signup" : "Login"}
           </Typography>
-          {isSignup && (
+          
             <TextField
               name="username"
               onChange={handleChange}
-              value={inputs.name}
+              value={inputs.username}
               placeholder="Username"
               margin="normal"
             />
-          )}{" "}
+          
+          {isSignup && (
           <TextField
             name="email"
             onChange={handleChange}
@@ -85,7 +86,7 @@ const Auth = () => {
             type={"email"}
             placeholder="Email"
             margin="normal"
-          />
+          />)}{" "}
           <TextField
             name="password"
             onChange={handleChange}

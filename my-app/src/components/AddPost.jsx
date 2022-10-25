@@ -6,6 +6,7 @@ import axios from "axios";
 const labelStyles = { mb: 1, mt: 2, fontSize: "24px", fontWeight: "bold" };
 
 
+
 function AddPost() {
   const classes = useStyles();
   const navigate = useNavigate();
@@ -24,7 +25,7 @@ function AddPost() {
   };
   const sendRequest = async () => {
     const res = await axios
-      .post("https://cspn-sports.herokuapp.com/users/posts", {
+      .post("https://cspn-sports.herokuapp.com/users/posts/_id", {
         title: inputs.title,
         image: inputs.imageURL,
         postText: inputs.postText,
@@ -100,15 +101,8 @@ function AddPost() {
       </RadioGroup>
            <Button type="submit" LinkComponent={Link} to="/myposts" variant='contained' sx={{ margin: 1, borderRadius: 4 }} color="warning">Create Post</Button>
 
-          <InputLabel>Title</InputLabel>
-          <TextField />
-          <InputLabel>ImageURL</InputLabel>
-          <TextField />
-          <InputLabel>Post text</InputLabel>
-          <TextField
-          multiline= {true}
-           />
-           <Button size="small">Create Post</Button>
+           
+       
 
           
         </Box>
