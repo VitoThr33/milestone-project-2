@@ -1,7 +1,18 @@
 import React from "react";
 import { CardContent, Typography } from '@mui/material'
 
-function Comments() {
+function Comments(props) {
+
+    //handle submit function
+    async function handleSubmit(event) {
+        event.preventDefault();
+        await fetch(`https://cspn-sports.herokuapp.com/comments/${props.id}`, {
+        method: "DELETE"
+      });
+      window.location.reload(false);
+    }
+
+
     return(
         <div className="comment-section">
             <CardContent>
@@ -12,7 +23,7 @@ function Comments() {
                 borderColor='black'
                 sx={{maxWidth:600, minWidth:600}}
                 >
-                    Comment user name
+                    {props.name}
                 </Typography>
                 <Typography
                 border={2}
@@ -31,10 +42,8 @@ function Comments() {
                     augue lacus viverra vitae congue. Vitae auctor eu augue ut. 
                     Amet dictum sit amet justo donec enim diam vulputate.
                 </Typography>
-                <form className="comment-delete" action=
-                {`https://cspn-sports.herokuapp.com/posts/{id}
-                ?_method=DELETE`} method="POST">
-                <input type='submit' value='DELETE COMMENT' />
+                <form className="comment-delete" onSubmit={handleSubmit}>
+                    <input type='submit' value='DELETE COMMENT' />
                 </form>
 
             </CardContent>
