@@ -76,9 +76,7 @@ router.put("/:id", async (req, res) => {
             {runValidators: true}
         );
         console.log("Updated user at ID", req.params.id);
-        res.status(200).json({
-            message: `Updated user at ${req.params.id}`
-        });
+        res.status(200).end();
     } catch (err) {
         if (err.name === "ValidationError") {
             let errorMessage = "Validation Error(s): "
@@ -108,9 +106,7 @@ router.delete("/:id", async (req, res) => {
             await Post.findByIdAndDelete(post._id);
         });
         console.log(`Deleted user and all related comments`);
-        res.status(200).json({
-            message: "Deleted User and all related comments and posts"
-        })
+        res.status(200).end();
     } catch (err) {
         res.status(500).json(err);
     }

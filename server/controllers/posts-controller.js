@@ -40,7 +40,7 @@ router.post("/", async (req, res) => {
     try {
         const createdPost = await Post.create(req.body);
         console.log("Created Post:", createdPost);
-        res.status(200).json(createdPost);
+        res.status(200).end();
     } catch (err) {
         if (err.name === "ValidationError") {
             let errorMessage = "Validation Error(s): "
@@ -61,9 +61,7 @@ router.put("/:id", async (req, res) => {
             {runValidators: true}    
         );
         console.log("Updated post at ID", req.params.id);
-        res.status(200).json({
-            message: `Updated post at ${req.params.id}`
-        });
+        res.status(200).end();
     } catch (err) {
         if (err.name === "ValidationError") {
             let errorMessage = "Validation Error(s): "
@@ -83,12 +81,10 @@ router.delete("/:id", async (req, res) => {
         await Post.findByIdAndDelete(req.params.id);
         await Comment.deleteMany({post: req.params.id});
         console.log(`Deleted post and all related comments`);
-        res.status(200).json({
-            message: `Deleted post and all related comments`
-        });
+        res.status(200).end();
     } catch (err) {
         console.log(err);
-        res.status(500).json(err);
+        res.status(500)
     }
 })
 

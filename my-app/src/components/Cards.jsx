@@ -1,26 +1,25 @@
 import React from 'react'
-import {CardMedia, CardContent, Card, Typography,CardActionArea,Button} from '@mui/material'
+import { CardMedia, CardContent, Card, Typography,CardActionArea,Button } from '@mui/material'
+import { Link } from "react-router-dom"
 
 function Cards(props) {
   return (
-    <div className='post-test'>
+    <div className='cards-posts'>
     
-      <Card sx={{ maxWidth: 450 }}>
+      <Card sx={{ borderRadius:5, minWidth:500, maxWidth:500}}>
         <CardContent>
           <Typography gutterBottom variant="h4">
               {props.title}
           </Typography>
           <CardMedia
             component="img"
-            height="140"
-            image="{prop.imgUrl}"
+            height="300"
+            width={200}
+            image='https://picsum.photos/id/237/536/354'
             alt="User's Post alt"
           />
-            <Typography variant="body2">
-            {props.details}
-          </Typography>
             <CardActionArea>
-              <Button href="/myposts/:id"size="small">Read More</Button>
+              <Link to={`/myposts/${props.id}`}>Read</Link>
             </CardActionArea>
         </CardContent>
       </Card>
