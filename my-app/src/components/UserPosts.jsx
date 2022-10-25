@@ -22,7 +22,4 @@ function UserPosts() {
 }
 
 export default UserPosts
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
-Terms
+
