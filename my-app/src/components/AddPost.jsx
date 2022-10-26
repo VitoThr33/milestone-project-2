@@ -14,7 +14,9 @@ function AddPost() {
   const [inputs, setInputs] = useState({
     title: "",
     imageURL: "",
-    postText: "",
+    post: "",
+    sport: "",
+
     
   });
   
@@ -26,10 +28,11 @@ function AddPost() {
   };
   const sendRequest = async () => {
     const res = await axios
-      .post("https://cspn-sports.herokuapp.com/users/posts/_id", {
+      .post("https://cspn-sports.herokuapp.com/users/posts", {
         title: inputs.title,
         image: inputs.imageURL,
-        postText: inputs.postText,
+        post: inputs.post,
+        sport: inputs.sport,
         
         user: localStorage.getItem("_id"),
       })
@@ -83,9 +86,9 @@ function AddPost() {
           </InputLabel>
           <TextField
             className={classes.font}
-            name="postText"
+            name="post"
             onChange={handleChange}
-            value={inputs.postText}
+            value={inputs.post}
             variant="outlined"
             multiline={true}
            />
@@ -93,12 +96,13 @@ function AddPost() {
         row
         aria-labelledby="demo-row-radio-buttons-group-label"
         name="row-radio-buttons-group"
+        
       >
-        <FormControlLabel value="Baseball" control={<Radio />} label="Baseball" />
-        <FormControlLabel value="Football" control={<Radio />} label="Football" />
-        <FormControlLabel value="Basketball" control={<Radio />} label="Basketball" />
-        <FormControlLabel value="Soccer" control={<Radio />} label="Soccer" />
-        <FormControlLabel value="Other" control={<Radio />} label="Other" />
+        <FormControlLabel  name="sport" onChange={handleChange}  value={inputs.sport} control={<Radio />} label="Baseball" />
+        <FormControlLabel name="sport" onChange={handleChange}  value={inputs.sport} control={<Radio />} label="Football" />
+        <FormControlLabel name="sport" onChange={handleChange}  value={inputs.sport} control={<Radio />} label="Basketball" />
+        <FormControlLabel name="sport" onChange={handleChange}  value={inputs.sport} control={<Radio />} label="Soccer" />
+        <FormControlLabel name="sport" onChange={handleChange}  value={inputs.sport} control={<Radio />} label="Other" />
       </RadioGroup>
            <Button type="submit" LinkComponent={Link} to="/myposts" variant='contained' sx={{ margin: 1, borderRadius: 4 }} color="warning">Create Post</Button>
 
