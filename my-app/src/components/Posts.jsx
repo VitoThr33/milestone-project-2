@@ -8,7 +8,7 @@ function Post() {
   //state variables
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
-  const [sport, setSport] = useState("baseball")
+  const [sport, setSport] = useState("all")
   const isMounted = useRef(false);
 
   //run once to fetch data from api
@@ -45,10 +45,16 @@ function Post() {
       <Navbar setSport={setSport}/>
       
       {data.map(post => {
-        if (sport === post.sport) {
+        if (sport === "all") {
           return (
             <Cards title={post.title} id={post.id}/>
           )
+        } else {
+          if (sport === post.sport) {
+            return (
+              <Cards title={post.title} id={post.id}/>
+            )
+          }
         }
       })}
 

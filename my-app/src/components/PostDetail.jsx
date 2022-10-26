@@ -2,7 +2,7 @@ import React, {useState, useRef, useEffect} from 'react'
 import { CardMedia, CardContent, Card, Typography } from '@mui/material'
 import Comments from './Comments'
 import UserComment from './UserComent'
-import {useLocation, useNavigate} from "react-router-dom"
+import {useLocation, useNavigate, Link} from "react-router-dom"
 
 function PostDetail(props) {
     //navigation to get ID
@@ -88,6 +88,7 @@ function PostDetail(props) {
                   <Comments name={comment.name} id={comment._id}/>
                 )
               })}
+              <Link to={`/posts/edit/${id}`}> EDIT POST </Link>
               <form className='delete-postBTN' onSubmit={handleSubmit}>
                 <input type='submit' value='DELETE POST'/>
               </form>
