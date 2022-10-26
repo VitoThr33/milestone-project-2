@@ -52,7 +52,7 @@ function Post() {
         } else {
           if (sport === post.sport) {
             return (
-              <Cards title={post.title} id={post.id}/>
+              <Cards title={post.title} id={post.id} image={post.image}/>
             )
           }
         }
