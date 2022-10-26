@@ -5,13 +5,11 @@ import {useEffect, useState, useRef} from "react";
 
 function Post() {
 
-  //state variables
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [sport, setSport] = useState("baseball")
   const isMounted = useRef(false);
 
-  //run once to fetch data from api
   useEffect(() => {
     async function getData() {
       const response = await fetch("https://cspn-sports.herokuapp.com/posts/");
@@ -22,7 +20,6 @@ function Post() {
     
   }, [])
 
-  //run after first render to re-render main page
   useEffect(() => {
     if (isMounted.current) {
       setIsLoading(false);
@@ -31,14 +28,13 @@ function Post() {
     }
   }, [data])
 
-  //renders if data is not loaded yet
+
   if (isLoading) {
     return (
       <div>Loading...</div>
     )
   }
 
-  //main render
   return (
 
     <div>

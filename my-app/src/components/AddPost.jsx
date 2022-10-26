@@ -3,11 +3,10 @@ import { Typography, Box, InputLabel, TextField, Button, FormControlLabel,RadioG
 import { Link,useNavigate } from "react-router-dom";
 import { useStyles } from "./utils";
 import axios from "axios";
-
 const labelStyles = { mb: 1, mt: 2, fontSize: "24px", fontWeight: "bold" };
 
 
-
+//inputs, fetch/pull through axios
 function AddPost() {
   const classes = useStyles();
   const navigate = useNavigate();
@@ -47,6 +46,7 @@ function AddPost() {
       .then((data) => console.log(data))
       .then(() => navigate("/posts"));
   };
+  //Form and radio buttons
   return (
     <div>
       <form onSubmit={handleSubmit}>
