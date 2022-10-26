@@ -1,26 +1,55 @@
 import { Box, Button, Typography,TextField, } from '@mui/material'
-import React,{useState} from 'react'
+import React,{useState} from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { authActions } from "../store";
 
 const Auth = () => {
-  const navigate = useNavigate()
-  const [inputs, setInputs]= useState({
-    name:"",
-    email:"",
-    password:""
+  const naviagte = useNavigate();
+  const dispatch = useDispatch();
+  const [inputs, setInputs] = useState({
+    username: "",
+    email: "",
+    password: "",
   });
-
-  const [isSignup, setIsSignup]=useState(false)
+  const [isSignup, setIsSignup] = useState(false);
   const handleChange = (e) => {
     setInputs((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }));
   };
-  const handleSubmit=(e)=> {
-    e.preventDefault()
+  const sendRequest = async (type = "users") => {
+    const res = await axios
+      .post(`https://cspn-sports.herokuapp.com/${type}`, {
+        username: inputs.username,
+        email: inputs.email,
+        password: inputs.password,
+      })
+      .catch((err) => console.log(err));
+
+    const data = await res.data;
+    console.log(data);
+    return data;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
     console.log(inputs);
-  }
+    if (isSignup) {
+      sendRequest("users/register")
+        .then((data) => localStorage.setItem )
+        .then(() => dispatch(authActions.login()))
+        .then(() => naviagte("/posts"));
+    } else {
+      sendRequest("users/auth")
+        .then((data) => localStorage.setItem )
+        .then(() => dispatch(authActions.login()))
+        .then(() => naviagte("/myposts"));
+    }
+  };
+  
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -40,15 +69,16 @@ const Auth = () => {
           <Typography variant="h2" padding={3} textAlign="center">
             {isSignup ? "Signup" : "Login"}
           </Typography>
-          {isSignup && (
+          
             <TextField
-              name="name"
+              name="username"
               onChange={handleChange}
-              value={inputs.name}
-              placeholder="Name"
+              value={inputs.username}
+              placeholder="Username"
               margin="normal"
             />
-          )}{" "}
+          
+          {isSignup && (
           <TextField
             name="email"
             onChange={handleChange}
@@ -56,7 +86,7 @@ const Auth = () => {
             type={"email"}
             placeholder="Email"
             margin="normal"
-          />
+          />)}{" "}
           <TextField
             name="password"
             onChange={handleChange}
@@ -87,3 +117,4 @@ const Auth = () => {
 }
 
 export default Auth
+
