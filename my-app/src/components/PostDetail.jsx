@@ -8,7 +8,7 @@ function PostDetail(props) {
     //navigation to get ID
     const navigate = useNavigate();
     const location = useLocation();
-    const id = location.pathname.substring(9);
+    const id = location.pathname.substring(7);
     console.log(id)
 
     //state variables

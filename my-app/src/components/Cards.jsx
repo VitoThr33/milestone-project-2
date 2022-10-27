@@ -19,7 +19,7 @@ function Cards(props) {
             alt="Post Image"
           />
             <CardActionArea>
-              <Link to={`/myposts/${props.id}`}>Read</Link>
+              <Link to={`/posts/${props.id}`}>Read</Link>
             </CardActionArea>
         </CardContent>
       </Card>
