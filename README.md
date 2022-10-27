@@ -34,7 +34,24 @@
 ## Usage
 
 ### Front-end
+**Starting**
+1. cd into the my-app directory
+2. run `npm install` to install all required packages
+3. run `npm start` to automatically run and open the browser
 
+**App**
+The "All Posts" button will show a list of all posts present on the database,
+ you can click the filter buttons on top to filter by sport.
+
+"Add New Post" will take you to a form to create a new post.
+
+You can register and logout by using the button on the top right.
+
+Reading a post will take you to a more detailed view of the post with
+detailed information on the post itself and all comments related.
+You can click edit to go to a form and edit a post, or delete
+to delete a post. You can also comment from this page and delete
+any comments.
 
 ---
 
