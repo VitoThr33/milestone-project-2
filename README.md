@@ -141,6 +141,7 @@ Has virtual fields referencing all comments and posts with matching user IDs.
 ### Front-End
 - Page showing all posts by logged in user is unfinished
 - Creating a user with a duplicate email or username will log into the website, but will not create a new user on the database
+- User is not getting saved on login, so all posts are made without a user ID
 ---
 ### Back-end
 - Authenticate process is quick and not secure just for testing purposes

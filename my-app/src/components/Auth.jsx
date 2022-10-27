@@ -8,6 +8,7 @@ import { authActions } from "../store";
 const Auth = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [failedLogin, setFailedLogin] = useState(false);
   const [inputs, setInputs] = useState({
     username: "",
     email: "",
@@ -27,7 +28,7 @@ const Auth = () => {
         email: inputs.email,
         password: inputs.password,
       })
-      .catch((err) => console.log(err));
+      .catch(setFailedLogin(true));
 
     const data = await res.data;
     console.log(data);
@@ -68,6 +69,9 @@ const Auth = () => {
         >
           <Typography variant="h2" padding={3} textAlign="center">
             {isSignup ? "Signup" : "Login"}
+          </Typography>
+          <Typography>
+            {failedLogin ? "Username or Password was incorrect" : ""}
           </Typography>
           
             <TextField
