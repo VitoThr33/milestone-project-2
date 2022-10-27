@@ -6,14 +6,16 @@ import axios from "axios";
 const labelStyles = { mb: 1, mt: 2, fontSize: "24px", fontWeight: "bold" };
 
 
-
+//inputs, fetch/pull through axios
 function AddPost() {
   const classes = useStyles();
   const navigate = useNavigate();
   const [inputs, setInputs] = useState({
     title: "",
     imageURL: "",
-    postText: "",
+    post: "",
+    sport: "football,basketball,baseball,soccer,other",
+
     
   });
   
@@ -25,10 +27,11 @@ function AddPost() {
   };
   const sendRequest = async () => {
     const res = await axios
-      .post("https://cspn-sports.herokuapp.com/users/posts/_id", {
+      .post("https://cspn-sports.herokuapp.com/users/posts", {
         title: inputs.title,
         image: inputs.imageURL,
-        postText: inputs.postText,
+        post: inputs.post,
+        sport: inputs.sport,
         
         user: localStorage.getItem("_id"),
       })
@@ -43,6 +46,7 @@ function AddPost() {
       .then((data) => console.log(data))
       .then(() => navigate("/posts"));
   };
+  //Form and radio buttons
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -82,9 +86,9 @@ function AddPost() {
           </InputLabel>
           <TextField
             className={classes.font}
-            name="postText"
+            name="post"
             onChange={handleChange}
-            value={inputs.postText}
+            value={inputs.post}
             variant="outlined"
             multiline={true}
            />
@@ -92,12 +96,14 @@ function AddPost() {
         row
         aria-labelledby="demo-row-radio-buttons-group-label"
         name="row-radio-buttons-group"
+        value={inputs.sport}
+        
       >
-        <FormControlLabel value="Baseball" control={<Radio />} label="Baseball" />
-        <FormControlLabel value="Football" control={<Radio />} label="Football" />
-        <FormControlLabel value="Basketball" control={<Radio />} label="Basketball" />
-        <FormControlLabel value="Soccer" control={<Radio />} label="Soccer" />
-        <FormControlLabel value="Other" control={<Radio />} label="Other" />
+        <FormControlLabel  name="sport"   value="baseball" control={<Radio />} label="Baseball" />
+        <FormControlLabel name="sport"   value="football" control={<Radio />} label="Football" />
+        <FormControlLabel name="sport"   value="basketball" control={<Radio />} label="Basketball" />
+        <FormControlLabel name="sport"  value="soccer" control={<Radio />} label="Soccer" />
+        <FormControlLabel name="sport" value="other" control={<Radio />} label="Other" />
       </RadioGroup>
            <Button type="submit" LinkComponent={Link} to="/myposts" variant='contained' sx={{ margin: 1, borderRadius: 4 }} color="warning">Create Post</Button>
 
