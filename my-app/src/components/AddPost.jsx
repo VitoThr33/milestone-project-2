@@ -14,7 +14,7 @@ function AddPost() {
     title: "",
     imageURL: "",
     post: "",
-    sport: "",
+    sport: "football,basketball,baseball,soccer,other",
 
     
   });
@@ -96,13 +96,14 @@ function AddPost() {
         row
         aria-labelledby="demo-row-radio-buttons-group-label"
         name="row-radio-buttons-group"
+        value={inputs.sport}
         
       >
-        <FormControlLabel  name="sport" onChange={handleChange}  value={inputs.sport} control={<Radio />} label="Baseball" />
-        <FormControlLabel name="sport" onChange={handleChange}  value={inputs.sport} control={<Radio />} label="Football" />
-        <FormControlLabel name="sport" onChange={handleChange}  value={inputs.sport} control={<Radio />} label="Basketball" />
-        <FormControlLabel name="sport" onChange={handleChange}  value={inputs.sport} control={<Radio />} label="Soccer" />
-        <FormControlLabel name="sport" onChange={handleChange}  value={inputs.sport} control={<Radio />} label="Other" />
+        <FormControlLabel  name="sport"   value="baseball" control={<Radio />} label="Baseball" />
+        <FormControlLabel name="sport"   value="football" control={<Radio />} label="Football" />
+        <FormControlLabel name="sport"   value="basketball" control={<Radio />} label="Basketball" />
+        <FormControlLabel name="sport"  value="soccer" control={<Radio />} label="Soccer" />
+        <FormControlLabel name="sport" value="other" control={<Radio />} label="Other" />
       </RadioGroup>
            <Button type="submit" LinkComponent={Link} to="/myposts" variant='contained' sx={{ margin: 1, borderRadius: 4 }} color="warning">Create Post</Button>
 
