@@ -47,7 +47,7 @@ function Post() {
       {data.map(post => {
         if (sport === "all") {
           return (
-            <Cards title={post.title} id={post.id}/>
+            <Cards title={post.title} id={post.id} image={post.image}/>
           )
         } else {
           if (sport === post.sport) {
