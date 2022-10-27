@@ -15,8 +15,8 @@ function Cards(props) {
             component="img"
             height="300"
             width={200}
-            image='https://picsum.photos/id/237/536/354'
-            alt="User's Post alt"
+            image={`${props.image}`}
+            alt="Post Image"
           />
             <CardActionArea>
               <Link to={`/myposts/${props.id}`}>Read</Link>
