@@ -21,7 +21,7 @@ const Header = () => {
                 {isLoggedIn && <Box display="flex" marginLeft={'auto'} marginRight='auto'>
                     <Tabs textColor="inherit" value={value} onChange={(e, val) => setvalue(val)}>
                         <Tab LinkComponent={Link} to="/posts" label="All Posts" />
-                        <Tab LinkComponent={Link} to="/myposts" label="My Posts" />
+                        {/* <Tab LinkComponent={Link} to="/myposts" label="My Posts" /> */}
                         <Tab LinkComponent={Link} to="/posts/add" label="Add New Post" />
                     </Tabs>
                 </Box>}               

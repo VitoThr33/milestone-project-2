@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { authActions } from "../store";
 
 const Auth = () => {
-  const naviagte = useNavigate();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [inputs, setInputs] = useState({
     username: "",
@@ -41,12 +41,12 @@ const Auth = () => {
       sendRequest("users/register")
         .then((data) => localStorage.setItem )
         .then(() => dispatch(authActions.login()))
-        .then(() => naviagte("/posts"));
+        .then(() => navigate("/posts"));
     } else {
       sendRequest("users/auth")
         .then((data) => localStorage.setItem )
         .then(() => dispatch(authActions.login()))
-        .then(() => naviagte("/myposts"));
+        .then(() => navigate("/posts"));
     }
   };
   

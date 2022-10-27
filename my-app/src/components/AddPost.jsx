@@ -12,6 +12,7 @@ function AddPost() {
   const navigate = useNavigate();
   const [inputs, setInputs] = useState({
     title: "",
+    name: "",
     imageURL: "",
     post: "",
     sport: "other",
@@ -30,6 +31,7 @@ function AddPost() {
     const res = await axios
       .post("https://cspn-sports.herokuapp.com/posts", {
         title: inputs.title,
+        name: inputs.name,
         image: inputs.imageURL,
         post: inputs.post,
         sport: inputs.sport,
@@ -74,6 +76,13 @@ function AddPost() {
           name="title"
           onChange={handleChange}
           value={inputs.title}
+          variant="outlined"/>
+          <InputLabel className={classes.font} sx={labelStyles}>Name</InputLabel>
+          <TextField 
+          className={classes.font}
+          name="name"
+          onChange={handleChange}
+          value={inputs.name}
           variant="outlined"/>
           <InputLabel className={classes.font} sx={labelStyles}>ImageURL</InputLabel>
           <TextField
