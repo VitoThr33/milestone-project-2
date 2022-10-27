@@ -58,7 +58,7 @@ function PostDetail(props) {
     //main render
     return(
       <div className='post-details'> 
-      
+        
         <Card >
           <CardContent>
               <Typography gutterBottom variant="h4">
@@ -88,7 +88,7 @@ function PostDetail(props) {
                   <Comments name={comment.name} id={comment._id} comment={comment.comment}/>
                 )
               })}
-              <Link to={`/posts/edit/${id}`}> EDIT POST </Link>
+              <Link to={`/posts/edit/${id}`} className='edit-btn'> EDIT POST </Link>
               <form className='delete-postBTN' onSubmit={handleSubmit}>
                 <input type='submit' value='DELETE POST'/>
               </form>
