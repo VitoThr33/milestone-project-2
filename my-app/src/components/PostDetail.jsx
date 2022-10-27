@@ -64,6 +64,9 @@ function PostDetail(props) {
               <Typography gutterBottom variant="h4">
                 <h1>{data.title}</h1>
               </Typography>
+              <Typography gutterBottom variant="h6">
+                <h4>By {data.name}</h4>
+              </Typography>
               <hr></hr>
               <CardMedia
               component="img"

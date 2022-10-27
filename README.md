@@ -117,5 +117,8 @@ Has virtual fields referencing all comments and posts with matching user IDs.
 
 ## Bugs and Unfinished Features
 ### Front-End
+- Page showing all posts by logged in user is unfinished
+- Logging in is a bit buggy and sometimes does not work
 ---
 ### Back-end
+- Authenticate process is quick and not secure just for testing purposes
