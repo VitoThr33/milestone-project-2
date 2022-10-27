@@ -2,7 +2,12 @@
 # CSPN, Milestone Project 2
 
 ## Inspiration
-
+Our inspiration to making this website comes from the lack of uncensored
+ and to the point sports content. Nowadays sports blogs are too diverse 
+ and do not stick to sports, having articles talking about subjects 
+ unassociated to sports. For this reason we have decided to create CSPN to  
+ allow users to strictly express their thoughts about sports allowing others 
+ to all give an opinion with the comment section.
 
 ## Technologies
 ### Front-End
@@ -135,7 +140,7 @@ Has virtual fields referencing all comments and posts with matching user IDs.
 ## Bugs and Unfinished Features
 ### Front-End
 - Page showing all posts by logged in user is unfinished
-- Logging in is a bit buggy and sometimes does not work
+- Creating a user with a duplicate email or username will log into the website, but will not create a new user on the database
 ---
 ### Back-end
 - Authenticate process is quick and not secure just for testing purposes

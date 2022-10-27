@@ -20,7 +20,7 @@ function Cards(props) {
           />
             <CardActionArea>
 
-              <Link to={`/myposts/${props.id}`} className='read-button'>Read Article</Link>
+              <Link to={`/posts/${props.id}`} className='read-button'>Read Article</Link>
 
             </CardActionArea>
         </CardContent>
