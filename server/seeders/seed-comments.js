@@ -2,7 +2,7 @@ const { default: mongoose } = require("mongoose");
 const db = require("../models");
 
 const userId = "6356ff482e8af4d121983adb";
-const postId = "63572edbddf5dc38e0a6b0fb"
+const postId = "6358a06d2cc56bbbc33f665d"
 
 //seed comments
 //run seed posts first, and replace id values with ids from new posts

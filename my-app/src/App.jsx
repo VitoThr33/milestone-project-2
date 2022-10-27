@@ -4,6 +4,7 @@ import Posts from "./components/Posts";
 import UserPosts from "./components/UserPosts";
 import PostDetail from "./components/PostDetail";
 import AddPost from "./components/AddPost";
+import EditPost from "./components/EditPost";
 import React from "react";
 import './App.css';
 import {Route, Routes,} from "react-router-dom";
@@ -24,6 +25,7 @@ function App() {
             <Route path ="/posts/add" element={<AddPost/>}/>
             <Route path ="/myPosts" element={<UserPosts/>}/>
             <Route path ="/myPosts/:id" element={<PostDetail/>}/>
+            <Route path="/posts/edit/:id" element={<EditPost />} />
             
           </Routes>
         </main>

@@ -31,16 +31,7 @@ function Comments(props) {
                 textAlign={'left'}
                 sx={{maxWidth: 600, minWidth: 600}}
                 >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Quis viverra nibh cras pulvinar mattis nunc sed blandit libero. 
-                    Phasellus vestibulum lorem sed risus ultricies tristique nulla 
-                    aliquet enim. Tempus quam pellentesque nec nam aliquam. 
-                    Vel risus commodo viverra maecenas accumsan lacus vel facilisis. 
-                    Nulla aliquet enim tortor at. Volutpat consequat mauris nunc congue 
-                    nisi vitae suscipit tellus mauris. Ultrices in iaculis nunc sed 
-                    augue lacus viverra vitae congue. Vitae auctor eu augue ut. 
-                    Amet dictum sit amet justo donec enim diam vulputate.
+                    {props.comment}
                 </Typography>
                 <form className="comment-delete" onSubmit={handleSubmit}>
                     <input type='submit' value='DELETE COMMENT' />

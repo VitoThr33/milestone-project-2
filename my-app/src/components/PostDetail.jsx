@@ -1,8 +1,8 @@
 import React, {useState, useRef, useEffect} from 'react'
 import { CardMedia, CardContent, Card, Typography } from '@mui/material'
 import Comments from './Comments'
-import UserComment from './UserComent'
-import {useLocation, useNavigate} from "react-router-dom"
+import UserComment from './UserComment'
+import {useLocation, useNavigate, Link} from "react-router-dom"
 
 function PostDetail(props) {
     //navigation to get ID
@@ -62,32 +62,33 @@ function PostDetail(props) {
         <Card >
           <CardContent>
               <Typography gutterBottom variant="h4">
-                <h1>Title goes here</h1>
+                <h1>{data.title}</h1>
               </Typography>
               <hr></hr>
               <CardMedia
               component="img"
               height="400"
               width={900}
-              image="{prop.imgUrl}"
-              alt="User's IMG Goes here"
+              image={`${data.image}`}
+              alt="Post Image"
               />
               
-              <Typography variant="body2">
-              {props.details}
+              <Typography variant="body1">
+              {data.post}
               
               </Typography>
-              
+              <hr></hr>
               
               <Typography varient='h4'>What do you think?</Typography>
 
-              <UserComment />
+              <UserComment id={id}/>
               <Typography>What others Think</Typography>
               {data.comments.map(comment => {
                 return (
-                  <Comments name={comment.name} id={comment._id}/>
+                  <Comments name={comment.name} id={comment._id} comment={comment.comment}/>
                 )
               })}
+              <Link to={`/posts/edit/${id}`}> EDIT POST </Link>
               <form className='delete-postBTN' onSubmit={handleSubmit}>
                 <input type='submit' value='DELETE POST'/>
               </form>
