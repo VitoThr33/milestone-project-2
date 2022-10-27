@@ -8,6 +8,7 @@ function Navbar(props) {
             <Button size="large" variant="contained" sx={{ borderRadius:10, margin: 1 }} color="grey" onClick={() => props.setSport("football")}>NFL</Button>
             <Button size="large" variant="contained" sx={{ borderRadius:10, margin: 1 }} color="grey" onClick={() => props.setSport("soccer")}>Soccer</Button>
             <Button size="large" variant="contained" sx={{ borderRadius:10, margin: 1 }} color="grey" onClick={() => props.setSport("other")}>Other</Button>
+            <Button size="large" variant="contained" sx={{ borderRadius:10, margin: 1 }} color="grey" onClick={() => props.setSport("all")}>All</Button>
         </div>
 
     )

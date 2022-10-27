@@ -2,8 +2,16 @@
 # CSPN, Milestone Project 2
 
 ## Inspiration
+
+
 ## Technologies
 ### Front-End
+**Technologies Used**
+
+- Material-UI
+- Redux
+- React
+- Axios
 
 -----
 
@@ -22,7 +30,15 @@
 - Heroku CLI
 - Nodemon
 - Dotenv
+
+## Usage
+
+### Front-end
+
+
 ---
+
+### Back-end
 
 **All API calls are made to https://cspn-sports.herokuapp.com/**
 
