@@ -1,0 +1,14 @@
+$border-color_1: black;
+
+#myBox {
+	display: flex;
+	flex-direction: column;
+	width: 80%;
+	border: 30px;
+	border-radius: 10px;
+	border-color: $border-color_1;
+	box-shadow: 10px 10px 20px;
+	margin: auto;
+	padding: 30px;
+	margin-top: 50px;
+}

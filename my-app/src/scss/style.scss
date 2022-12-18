@@ -1,0 +1,55 @@
+@use './auth.scss';
+@use './addpost.scss';
+@use './fullpost.scss';
+@use './functions.scss';
+
+
+$color_1: black;
+$font-family_1: Arial, Helvetica, sans-serif;
+$background-color_1: gray;
+$background-color_2: #F3EFE0;
+
+
+/* Home page Entire Cards  */
+/* home page Posts Cards image */
+* {
+	font-family: $font-family_1;
+}
+body {
+	background-color: $background-color_1;
+}
+h1 {
+	color: $color_1;
+	text-align: center;
+}
+.mainNav {
+	li {
+		text-align: center;
+		display: inline;
+	}
+}
+.home-post {
+	border-radius: 30px;
+	padding: 60px 400px;
+	position: relative;
+	background-color: $background-color_2;
+	height: 400px;
+	margin: 50px 0;
+}
+.title-post {
+	font-size: 4em;
+	text-align: center;
+}
+.cards-posts {
+	display: flex;
+	justify-content: center;
+	margin: 80px;
+	padding-bottom: 0px;
+}
+.MuiCard-root {
+	max-width: fit-content;
+}
+.MuiCardMedia-img {
+	margin: 0;
+	padding: 0;
+}

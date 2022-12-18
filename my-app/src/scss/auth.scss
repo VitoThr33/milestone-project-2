@@ -1,0 +1,31 @@
+$color_1: #ff5722;
+$color_2: red;
+
+@mixin txtDsply {
+	text-align: center;
+	padding: 30px;
+}
+
+.MuiBox-root.css-0 {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	box-shadow: 10px 10px 20px;
+	padding: 3px;
+	margin: auto;
+	margin-top: 20px;
+	border-radius: 30px;
+	max-width: 500px;
+}
+.MuiTypography-root.MuiTypography-h2.css-1sra7t5-MuiTypography-root {
+	@include txtDsply;
+}
+.MuiTypography-root.MuiTypography-body1.css-ahj2mt-MuiTypography-root {
+	@include txtDsply;
+	color: $color_1;
+}
+.button.MuiButtonBase-root.MuiBotton-root.MuiButton-contained.MuiButton-containedWarning.MuiButton-sizeMedium.MuiButton-containedSizedMedium.css-1qtu9q6-MuiBottonBase-root-MuiBotton-root {
+	border-radius: 30px;
+	margin-top: 50px;
+	color: $color_2;
+}

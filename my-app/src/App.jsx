@@ -6,7 +6,7 @@ import PostDetail from "./components/PostDetail";
 import AddPost from "./components/AddPost";
 import EditPost from "./components/EditPost";
 import React from "react";
-import './App.css';
+import './scss/style.scss';
 import {Route, Routes,} from "react-router-dom";
 import { useSelector } from "react-redux";
 

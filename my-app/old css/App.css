@@ -1,0 +1,48 @@
+@import url("Auth.css");
+@import url("AddPost.css");
+@import url("FullPost.css");
+
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+body {
+    background-color: gray;
+}
+h1 {
+    color: black;
+    text-align: center;
+  }
+  .mainNav li{
+    text-align: center;
+    display: inline;
+  }
+  .home-post{
+    border-radius: 30px;
+    padding: 60px 400px;
+    position: relative;
+    background-color: #F3EFE0;
+    height: 400px;
+    margin: 50px 0;
+    
+  }
+  .title-post {
+    font-size: 4em;
+    text-align: center;
+  }
+  .cards-posts{
+    display: flex;
+    justify-content: center;
+    margin: 80px;
+    padding-bottom: 0px;
+  }
+  /* Home page Entire Cards  */
+  .MuiCard-root {
+    max-width: fit-content;
+    
+  }
+  /* home page Posts Cards image */
+  .MuiCardMedia-img {
+    margin: 0;
+    padding: 0;
+  }
+ 
