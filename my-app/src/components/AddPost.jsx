@@ -51,19 +51,10 @@ function AddPost() {
   };
   //Form and radio buttons
   return (
-    <div>
+    <div >
       <form onSubmit={handleSubmit}>
-        <Box
-          display="flex"
-          flexDirection={'column'}
-          width={"80%"} 
-          border={3}
-          borderRadius={10}
-          borderColor="black"
-          boxShadow="10px 10px 110px black"
-          margin={'auto'}
-          padding={3}
-          marginTop={5}>
+        <Box  id="myBox"
+         >
           <Typography
             textAlign={'center'}
             fontWeight={'bold'}

@@ -57,7 +57,7 @@ const Auth = () => {
         <Box 
         
         >
-          <Typography variant="h2" padding={3} textAlign="center">
+          <Typography variant="h2" >
             {isSignup ? "Signup" : "Login"}
           </Typography>
           <Typography>
