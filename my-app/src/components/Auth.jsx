@@ -55,16 +55,6 @@ const Auth = () => {
     <div>
       <form onSubmit={handleSubmit}>
         <Box 
-        display="flex" 
-        flexDirection={'column'} 
-        alignItems="center" 
-        justifyContent={"center"}
-        boxShadow="10px 10px 20px"
-        padding={3}
-        margin='auto'
-        marginTop={5}
-        borderRadius={5}
-        maxWidth={500}
         
         >
           <Typography variant="h2" padding={3} textAlign="center">
