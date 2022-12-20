@@ -6,7 +6,9 @@ import Navbar from './Navbar'
 function UserPosts() {
   return (
     <div className='my-post-pag'>
-      <Navbar />
+      <Navbar setSport={function (arg0: string): void {
+        throw new Error('Function not implemented.')
+      } } />
       
         <CardContent>
           <Typography 
@@ -14,7 +16,7 @@ function UserPosts() {
             align='center'
           >My Posts
           </Typography>
-          <Cards />
+          <Cards title={undefined} image={undefined} id={false} />
         </CardContent>
       
     </div>

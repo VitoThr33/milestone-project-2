@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { TextField, Button, InputLabel } from '@mui/material'
 
-function UserComment(props) {
+function UserComment(props: { id: boolean; }) {
 
     //state variable for textfield data
     const [inputs, setInputs] = useState({
@@ -11,7 +11,7 @@ function UserComment(props) {
     });
 
     //function to handle input field change
-    function handleChange(e) {
+    function handleChange(e: { target: { name: string; value: any; }; }) {
         setInputs(prevState => ({
             ...prevState,
             [e.target.name]: e.target.value
@@ -20,7 +20,7 @@ function UserComment(props) {
     }
 
     //handle comment submit
-    async function handleSubmit(e) {
+    async function handleSubmit(e: any) {
         await fetch(`https://cspn-sports.herokuapp.com/comments/`, {
             method: "POST",
             headers: {

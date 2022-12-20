@@ -4,7 +4,7 @@ import Comments from './Comments'
 import UserComment from './UserComment'
 import {useLocation, useNavigate, Link} from "react-router-dom"
 
-function PostDetail(props) {
+function PostDetail(props: any) {
     //navigation to get ID
     const navigate = useNavigate();
     const location = useLocation();
@@ -15,6 +15,7 @@ function PostDetail(props) {
     const [data, setData] = useState();
     const [isLoading, setIsLoading] = useState(true);
     const isMounted = useRef(false);
+    
 
     //run once to fetch data from api
     useEffect(() => {
@@ -38,7 +39,7 @@ function PostDetail(props) {
     }, [data])
 
     //handle submit on delete
-    async function handleSubmit(event) {
+    async function handleSubmit(event: { preventDefault: () => void }) {
       event.preventDefault();
       await fetch(`https://cspn-sports.herokuapp.com/posts/${id}`, {
         method: "DELETE"
@@ -86,7 +87,7 @@ function PostDetail(props) {
 
               <UserComment id={id}/>
               <Typography>What others Think</Typography>
-              {data.comments.map(comment => {
+              {data.comments.map((comment: { name: React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined; _id: boolean; comment: React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined }) => {
                 return (
                   <Comments name={comment.name} id={comment._id} comment={comment.comment}/>
                 )

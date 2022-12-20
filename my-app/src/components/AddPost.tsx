@@ -20,7 +20,7 @@ function AddPost() {
     
   });
   
-  const handleChange = (e) => {
+  const handleChange = (e: { target: { name: any; value: any; }; }) => {
     setInputs((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
@@ -42,7 +42,7 @@ function AddPost() {
     const data = await res.data;
     return data;
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     console.log(inputs);
     sendRequest()

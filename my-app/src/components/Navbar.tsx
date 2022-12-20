@@ -1,6 +1,8 @@
 import React from "react";
 import { Button } from '@mui/material'
-function Navbar(props) {
+
+
+function Navbar(props: { setSport: (arg0: string) => void; }) {
     return(
         <div className="navbar">
             <Button size="large" variant="contained" sx={{ borderRadius:10, margin: 1 }} color="grey" onClick={() => props.setSport("baseball")}>MLB</Button>

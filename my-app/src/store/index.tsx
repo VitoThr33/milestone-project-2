@@ -8,7 +8,7 @@ const authSlice= createSlice({
             state.isLoggedIn= true
         }
     },
-        logout(state){
+        logout(state: { isLoggedIn: boolean; }){
             state.isLoggedIn= false
         }
 

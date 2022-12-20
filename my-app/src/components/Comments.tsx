@@ -1,10 +1,10 @@
 import React from "react";
 import { CardContent, Typography } from '@mui/material'
 
-function Comments(props) {
+function Comments(props: { id: boolean; name: string | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined; comment: string | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined; }) {
 
     //handle submit function
-    async function handleSubmit(event) {
+    async function handleSubmit(event: { preventDefault: () => void; }) {
         event.preventDefault();
         await fetch(`https://cspn-sports.herokuapp.com/comments/${props.id}`, {
         method: "DELETE"

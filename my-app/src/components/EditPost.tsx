@@ -50,7 +50,7 @@ function EditPost() {
     }, [data])
 
     //function to handle submit
-    async function handleSubmit(event) {
+    async function handleSubmit(_event: any) {
         await fetch(`https://cspn-sports.herokuapp.com/posts/${id}`, {
             method: "PUT",
             headers: {
@@ -62,7 +62,7 @@ function EditPost() {
     }
 
     //function to handle change to inputs
-    function handleChange(e) {
+    function handleChange(e: { target: { name: string; value: any; }; }) {
         setInputs((prevState) => ({
             ...prevState,
             [e.target.name]: e.target.value

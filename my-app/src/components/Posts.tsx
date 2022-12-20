@@ -2,6 +2,7 @@ import React from 'react'
 import Cards from './Cards'
 import Navbar from './Navbar'
 import {useEffect, useState, useRef} from "react";
+import { Url } from 'url';
 
 function Post() {
 
@@ -44,7 +45,7 @@ function Post() {
     <div>
       <Navbar setSport={setSport}/>
       
-      {data.map(post => {
+      {data.map((post: { title: {} | null | undefined; id: boolean; image: Url; sport: string; }) => {
         if (sport === "all") {
           return (
             <Cards title={post.title} id={post.id} image={post.image}/>

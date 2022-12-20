@@ -1,8 +1,9 @@
 import React from 'react'
 import { CardMedia, CardContent, Card, Typography,CardActionArea,Button } from '@mui/material'
 import { Link } from "react-router-dom"
+import { Url } from 'url';
 
-function Cards(props) {
+function Cards(props: { title: string | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined; image: Url; id: boolean }) {
   return (
     <div className='cards-posts'>
     
